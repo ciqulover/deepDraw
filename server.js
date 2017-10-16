@@ -1,6 +1,9 @@
 const Koa = require('koa')
 
 const app = new Koa()
+const serve = require('koa-static')
+app.use(serve('./', {defer: true}))
+
 const server = require('http').createServer(app.callback())
 
 const io = require('socket.io')(server)
