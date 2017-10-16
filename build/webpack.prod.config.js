@@ -1,6 +1,7 @@
 const baseConfig = require('./webpack.base.config')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const path = require('path')
 
 module.exports = merge(baseConfig, {
@@ -10,5 +11,6 @@ module.exports = merge(baseConfig, {
       filename: path.resolve(__dirname, '../index.html'),
       hash: true,
     }),
+    new UglifyJSPlugin()
   ]
 })
